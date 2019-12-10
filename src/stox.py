@@ -54,7 +54,7 @@ def run_prices_filter(cfg):
 
     filter_prices(in_df, prices_start_date, prices_end_date, years_int)
     
-    input("OK >")
+    #input("OK >")
 
 
 def run_buy_sell(cfg):
@@ -71,7 +71,7 @@ def run_buy_sell(cfg):
 
     logging.info("Running buy-sell...")
     buy_sell_v3(budget_dollars, fee_dollars, hold_days, low_price_cutoff, yearspan)
-    input("OK >")
+    #input("OK >")
 
 
 def rm_stoxdir(cfg):
@@ -79,7 +79,7 @@ def rm_stoxdir(cfg):
     for p in Path(stox_dir).glob("*.*"):
         p.unlink()
     logging.info("Removed stox data.")
-    input("OK >")
+    #input("OK >")
 
 
 def run_analysis():
@@ -92,7 +92,7 @@ def run_analysis():
     budget_dollars = args[2]
     min_trades = int(args[3])
     analyze(hold_days, budget_dollars, yearspan, min_trades)
-    input("OK >")
+    #input("OK >")
 
 
 def run_auto(cfg): 
@@ -158,7 +158,8 @@ def run_auto(cfg):
     endTime = pd.datetime.now()
     logging.info("Auto run finished at " + str(endTime))
     logging.info("Elapsed time: " + str(endTime - startTime))
-    input("OK > ")
+    
+    input("DONE with AUTO > ")
 
 
 def run_buy_sell_analyze(cfg, yearspan):
@@ -189,7 +190,7 @@ def run_buy_sell_analyze(cfg, yearspan):
 
             analyze(h, b, yearspan, min_trades)
 
-    input("OK > ")
+    #input("OK > ")
 
 
 def run_price_plot(cfg):
@@ -218,7 +219,7 @@ def run_make_blacklist(cfg):
 
     logging.info("Running blacklist...")
     make_blacklist(budget, holds, yearspan)
-    input("OK >")
+    #input("OK >")
 
 
 
@@ -239,7 +240,7 @@ def main():
             if os.path.exists("log-stox.log"):
                 os.remove("log-stox.log")
             logging.info("Log deleted.")
-            input("OK >")
+            #input("OK >")
 
         elif reply == '1':
             rm_stoxdir(cfg)
